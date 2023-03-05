@@ -93,7 +93,7 @@ const nextPageList = list => {
 };
 
 const createGalerry = list => {
-  return (gallery = list
+  return list
     .map(photo => {
       return `<a class="gallery__item" href="${photo.largeImageURL}" >
                 <div class="photo-card">
@@ -115,7 +115,7 @@ const createGalerry = list => {
                 </div>
             </a>`;
     })
-    .join(''));
+    .join('');
 };
 
 const smoothScrolling = () => {
