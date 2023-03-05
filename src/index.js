@@ -14,6 +14,8 @@ const refs = {
   loadMoreBtn: document.querySelector('.load-more'),
 };
 
+const lightbox = new SimpleLightbox('.gallery a');
+
 const seachPhotos = async event => {
   event.preventDefault();
   page = 1;
@@ -39,6 +41,7 @@ const seachPhotos = async event => {
     console.log(error);
   }
   refs.loadMoreBtn.classList.remove('hidden');
+
 };
 
 const getMorePhotos = async () => {
@@ -62,6 +65,7 @@ const getMorePhotos = async () => {
   } catch (error) {
     console.log(error);
   }
+  smoothScrolling()
 };
 
 const getSeachList = list => {
@@ -114,9 +118,16 @@ const createGalerry = list => {
     .join(''));
 };
 
-var lightbox = new SimpleLightbox('.gallery a');
+const smoothScrolling = () => {
+  const { height: cardHeight } = document
+    .querySelector('.gallery')
+    .firstElementChild.getBoundingClientRect();
+
+  window.scrollBy({
+    top: cardHeight * 2,
+    behavior: 'smooth',
+  });
+};
 
 refs.form.addEventListener('submit', seachPhotos);
 refs.loadMoreBtn.addEventListener('click', getMorePhotos);
-
-
