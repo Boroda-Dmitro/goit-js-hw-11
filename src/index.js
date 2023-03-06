@@ -41,7 +41,6 @@ const seachPhotos = async event => {
     console.log(error);
   }
   refs.loadMoreBtn.classList.remove('hidden');
-
 };
 
 const getMorePhotos = async () => {
@@ -65,7 +64,7 @@ const getMorePhotos = async () => {
   } catch (error) {
     console.log(error);
   }
-  smoothScrolling()
+  smoothScrolling();
 };
 
 const getSeachList = list => {
